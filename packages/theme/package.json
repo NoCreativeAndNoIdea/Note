@@ -1,12 +1,18 @@
 {
-  "name": "theme",
+  "name": "@note/theme",
+  "private": true,
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "exports": {
+    ".": "./src/index.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "color"
+  ],
   "author": "season <997432833lixuan@gmail.com> (https://github.com/muziyan)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@vanilla-extract/css": "^1.12.0"
+  }
 }
