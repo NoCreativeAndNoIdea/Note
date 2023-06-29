@@ -1,0 +1,25 @@
+{
+  "extends": ["@commitlint/config-conventional"],
+  "rules": {
+    "scope-enum": [
+      2,
+      "always",
+      [
+        "desktop",
+        "server",
+        "web",
+        "docs",
+        "component",
+        "workspace",
+        "env",
+        "graphql",
+        "cli",
+        "hooks",
+        "templates",
+        "y-indexeddb",
+        "debug",
+        "theme"
+      ]
+    ]
+  }
+}
