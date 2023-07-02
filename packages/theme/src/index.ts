@@ -13,12 +13,12 @@ type Kebab<T extends string, A extends string = ''> = T extends `${infer F}${inf
   ? Kebab<R, `${A}${F extends Lowercase<F> ? '' : '-'}${Lowercase<F>}`>
   : A
 
-export type AffineTheme = typeof lightTheme & {
+export type Theme = typeof lightTheme & {
   editorMode: 'page' | 'edgeless'
 }
 
-export type AffineCssVariables = {
-  [Key in `--note-${Kebab<keyof AffineTheme>}`]: string
+export type CssVariables = {
+  [Key in `--note-${Kebab<keyof Theme>}`]: string
 }
 
 const basicFontFamily =
@@ -262,14 +262,14 @@ export const darkTheme = {
   cardBackgroundBlue: 'linear-gradient(180deg, #14171F 0%, #202020 100%)',
   cardBackgroundGreen: 'linear-gradient(180deg, #192023 0%, #202020 100%)',
   cardBackgroundGrey: 'linear-gradient(180deg, #313131 0%, #202020 100%)'
-} satisfies Omit<AffineTheme, 'editorMode'>
+} satisfies Omit<Theme, 'editorMode'>
 
 export const lightCssVariables = Object.entries(lightTheme).reduce((variables, [key, value]) => {
-  variables[`--note-${camelToKebab(key)}` as keyof AffineCssVariables] = value
+  variables[`--note-${camelToKebab(key)}` as keyof CssVariables] = value
   return variables
-}, {} as AffineCssVariables)
+}, {} as CssVariables)
 
 export const darkCssVariables = Object.entries(darkTheme).reduce((variables, [key, value]) => {
-  variables[`--note-${camelToKebab(key)}` as keyof AffineCssVariables] = value
+  variables[`--note-${camelToKebab(key)}` as keyof CssVariables] = value
   return variables
-}, {} as AffineCssVariables)
+}, {} as CssVariables)
